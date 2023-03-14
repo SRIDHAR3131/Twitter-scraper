@@ -28,12 +28,12 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-# Connect to the MongoDB server
+#------------------------------------------Connect to the MongoDB server--------------------------------------
 client = MongoClient('mongodb://localhost:27017/')
 db = client.get_database("Twitter")
 collection = db.get_collection("user_data")
 
-#-----------------------------------------------------USER DATA---------------------------------------------
+#-----------------------------------------------------USER DATA----------------------------------------------
 
 col1, col2 = st.columns([2, 2])
 
