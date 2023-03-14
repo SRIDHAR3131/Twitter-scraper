@@ -28,13 +28,7 @@ Copy code
     client = MongoClient('mongodb://localhost:27017/')
 
 # Create a Streamlit user interface
-    col1, col2 = st.columns([2, 2])
-
-    col1.markdown("Please fill credentials")
-    with col1.form("entry_form", clear_on_submit=True):
-
-    c1, c2, c3, c4 = st.columns(4,gap='small')
-
+ 
     keyword =c1.text_input("Enter keyword",placeholder='Enter keyword')
 
     D_obj=c2.date_input("From")
@@ -61,28 +55,14 @@ Copy code
                         tweet.date, 
                         tweet.id, 
                         tweet.user.username, 
-                        tweet.content,
-                        tweet.likeCount, 
-                        tweet.replyCount,
-                        tweet.retweetCount, 
-                        tweet.lang, 
-                        tweet.source, 
-                        tweet.url])
-
-
+                        tweet.content])
         T_df = pd.DataFrame(add, columns=[
-                                    'DATE',
-                                    'ID',
-                                    'USER',
-                                    'CONTENT',
-                                    'LIKECOUNT',
-                                    'REPLYCOUNT',
-                                    'RETWEETCOUNT',
-                                    'LANGUAGE',
-                                    'SOURCE',
-                                    'URL'])
-
+                         'DATE',
+                         'ID',
+                         'USER',
+                         'CONTENT'])
         col2.dataframe(T_df)
+        
 # To create download button for JSON or CSV
         @st.cache_data
     def convert_df(T_df ):
@@ -95,15 +75,6 @@ Copy code
                         mime='text/csv'
                         )
 
-    @st.cache_data
-    def convert_df(T_df ):
-        return T_df .to_json().encode('utf-8')
-    json = convert_df(T_df )
-    col2.download_button(
-                        label="Download JSON",
-                        data=json,
-                        file_name='user_data.json',
-                        mime='text/json')
 This code snippet uses the TwitterSearchScraper class from the snscrape library to scrape tweets from a Twitter user based on the input from the Streamlit user interface. It then connects to a MongoDB server, creates a database called twitter_db, and stores each tweet in a collection called tweets. Finally, it creates a Streamlit user interface that allows the user to input a Twitter username and number of tweets to scrape.
 
 Contributing
