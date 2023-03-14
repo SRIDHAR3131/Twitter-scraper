@@ -64,7 +64,7 @@ Copy code
         col2.dataframe(T_df)
         
 # To create download button for JSON or CSV
-        @st.cache_data
+    @st.cache_data
     def convert_df(T_df ):
         return T_df .to_csv().encode('utf-8')
     csv = convert_df(T_df )
