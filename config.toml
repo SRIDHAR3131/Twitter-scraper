@@ -9,8 +9,6 @@ backgroundColor = "#002b36"
 #backgroundColor = "#444444"
 background_color="#0072C6"
 
-
-
 # Background color used for the sidebar and most interactive widgets.
 secondaryBackgroundColor = "#586e75"
 #secondary_background_color="#ffffff"
