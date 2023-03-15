@@ -26,6 +26,7 @@ Copy code
 
 # Connect to the MongoDB server
 Here I used MongoDB atlas for connecting my database server below mentioned for reference purpose only please read the documentation!
+
     client = MongoClient('mongodb://localhost:27017/')
 
 # Create a Streamlit user interface
