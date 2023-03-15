@@ -5,7 +5,7 @@ This project demonstrates how to scrape Twitter data using the snscrape Python l
 
 
 
-To use this project, you will need to install the snscrape, pymongo, and streamlit libraries. You can do this by running the following commands:
+To use this project, you will need to install the snscrape, pymongo, and streamlit libraries. You can do this by running the following commands in terminal for other os refer the document:
 
 
         pip install snscrape
@@ -32,7 +32,7 @@ Here I used MongoDB Compass for connecting my database server below mentioned fo
 ![Screenshot 2023-03-15 155437](https://user-images.githubusercontent.com/68391060/225282419-b944e65c-0731-4494-922f-957f6cf07030.png)
 
 
-    #sample crete your own database for secured purpose
+    #this is sample code crete your own database using username and password for secured purpose
     client = MongoClient('mongodb://localhost:27017/')
 # Fetching the user input in Database!!
 
@@ -55,15 +55,11 @@ Here I used MongoDB Compass for connecting my database server below mentioned fo
 
 
 # Scrape the tweets and using pandas to create DataFrame
-
-    if col2.button('get data'):
-       col2.write("getting data please wait!!")
-
-        maxTweets =T_count
-        query = f'{keyword} since:{date0} until:{date1}'
-        add = []
+The below code is for reference you can add user language,url,likecount,retweetcount,source and more.
+Using 'for loop' we can iterate over the tweet functions.
+  
+      
         tweets=sntwit.TwitterSearchScraper(query).get_items()
-
         for i,tweet in enumerate(tweets):
             if i>maxTweets:
                 break
@@ -79,10 +75,13 @@ Here I used MongoDB Compass for connecting my database server below mentioned fo
                          'CONTENT'])
         col2.dataframe(T_df)
 
+Using pandas library to create columns and listed the user details 
+To display in streamlit we can add st.dataframe for display in streamlit app. 
+
 ![Screenshot 2023-03-15 154149](https://user-images.githubusercontent.com/68391060/225279599-a34ef7e3-6b73-4cf1-ade9-381a514ba595.png)
         
 # To create download button for JSON or CSV
-Download button appear only after the getting data please note and it will auto disappear after download
+Please note:Download button appear only after the getting data it will popped out in the below dataframe and it will auto disappear after required file downloaded
 
     @st.cache_data
     def convert_df(T_df ):
