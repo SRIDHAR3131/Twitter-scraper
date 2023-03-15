@@ -1,3 +1,4 @@
+#import the python library and module
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -8,10 +9,13 @@ import calendar
 import datetime 
 
 #-------------------------------PAGE CONGIGURATION--------------------------------------------------------
+# to create webpage layout 
 st.set_page_config(
     page_title="St.twitter", 
     layout="wide", 
     page_icon=":unlock:")
+
+# Header and subtitle
 
 st.title('**:blue[Twitter]** **:red[Data]** scraping using snscrape python-library')
 st.markdown("Snscrape can be used to scrape different types of data from social media, including tweets, user profiles, media files, and more..")
@@ -19,6 +23,7 @@ st.write("[Learn more](https://medium.com/dataseries/how-to-scrape-millions-of-t
 
 
 # ----------------------------------------- HIDE STREAMLIT STYLE---------------------------------------------- 
+streamlit
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
@@ -29,19 +34,22 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 #------------------------------------------Connect to the MongoDB server--------------------------------------
+#connecting data thorospackers
+connecting the user unput from whhel alignemt
 client = MongoClient('mongodb://localhost:27017/')
 db = client.get_database("Twitter")
 collection = db.get_collection("user_data")
 
 #-----------------------------------------------------USER DATA----------------------------------------------
-
+#to create column in streamlit use this format
 col1, col2 = st.columns([2, 2])
 
 col1.markdown("Please fill credentials")
 with col1.form("entry_form", clear_on_submit=True):
+ #the below code is for user input content
 
     c1, c2, c3, c4 = st.columns(4,gap='small')
-
+    # Create a 4 variable for satisfy
     keyword =c1.text_input("Enter keyword",placeholder='Enter keyword')
 
     D_obj=c2.date_input("From")
@@ -49,11 +57,13 @@ with col1.form("entry_form", clear_on_submit=True):
 
     D_obj1=c3.date_input("To")
     date1=D_obj1.strftime('%Y-%m-%d')
+    #In scNSRE
 
     T_count=c4.number_input("Maximum tweet",1,1000,20,format='%i')
 
     submitted=st.form_submit_button('submit')
     if submitted:
+        # for this create a sample
         collection.insert_one({'keyword':keyword, 'From data': date0, 'To date': date1, 'Tweetcount':T_count})
         st.success("Data saved")
 
@@ -68,6 +78,7 @@ if col2.button('get data'):
     maxTweets =T_count
     query = f'{keyword} since:{date0} until:{date1}'
     add = []
+    #the module couldc'
     tweets=sntwit.TwitterSearchScraper(query).get_items()
 
     for i,tweet in enumerate(tweets):
