@@ -50,7 +50,8 @@ Here I used MongoDB Compass for connecting my database server below mentioned fo
     T_count=c4.number_input("Maximum tweet",1,1000,format='%i')
 
 
-![Screenshot 2023-03-15 154149](https://user-images.githubusercontent.com/68391060/225279599-a34ef7e3-6b73-4cf1-ade9-381a514ba595.png)
+![Screenshot 2023-03-15 160302](https://user-images.githubusercontent.com/68391060/225283303-500f642e-b7d5-4572-a93e-a26b96151fbe.png)
+
 
 # Scrape the tweets and using pandas to create DataFrame
 
@@ -76,6 +77,8 @@ Here I used MongoDB Compass for connecting my database server below mentioned fo
                          'USER',
                          'CONTENT'])
         col2.dataframe(T_df)
+
+![Screenshot 2023-03-15 154149](https://user-images.githubusercontent.com/68391060/225279599-a34ef7e3-6b73-4cf1-ade9-381a514ba595.png)
         
 # To create download button for JSON or CSV
     @st.cache_data
