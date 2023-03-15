@@ -11,7 +11,7 @@ To use this project, you will need to install the snscrape, pymongo, and streaml
         pip install snscrape
         pip install pymongo
         pip install streamlit
-        pip install snscrape
+  
        
         
 You will also need to have Python 3.7 or higher installed on your system, as well as a MongoDB server.
