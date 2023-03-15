@@ -32,8 +32,9 @@ Here I used MongoDB Compass for connecting my database server below mentioned fo
 ![Screenshot 2023-03-15 155437](https://user-images.githubusercontent.com/68391060/225282419-b944e65c-0731-4494-922f-957f6cf07030.png)
 
 
-    #sample crete your own database foe secured purpose
+    #sample crete your own database for secured purpose
     client = MongoClient('mongodb://localhost:27017/')
+# Fetching the user input!!
 
 ![Screenshot 2023-03-15 155536](https://user-images.githubusercontent.com/68391060/225281554-d345dd01-cb2e-43d8-9b4a-d6229513e8e9.png)
 
