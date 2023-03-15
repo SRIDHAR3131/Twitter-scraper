@@ -82,6 +82,7 @@ Here I used MongoDB Compass for connecting my database server below mentioned fo
 ![Screenshot 2023-03-15 154149](https://user-images.githubusercontent.com/68391060/225279599-a34ef7e3-6b73-4cf1-ade9-381a514ba595.png)
         
 # To create download button for JSON or CSV
+Download button appear only after the getting data please note and it will auto disappear after download
     @st.cache_data
     def convert_df(T_df ):
         return T_df .to_csv().encode('utf-8')
