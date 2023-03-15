@@ -1,7 +1,10 @@
 # Twitter Data Scraping with snscrape, MongoDB, and Streamlit
 This project demonstrates how to scrape Twitter data using the snscrape Python library, store it in a MongoDB database, and create a user interface using Streamlit to get input from the user. The goal of this project is to provide a simple and efficient way to collect Twitter data for analysis or research purposes.
 
-Installation
+
+
+Installation![Screenshot 2023-03-14 154838](https://user-images.githubusercontent.com/68391060/225277058-58cb0ff3-1aef-44a4-a71b-1e7ce72b9d5c.png)
+
 To use this project, you will need to install the snscrape, pymongo, and streamlit libraries. You can do this by running the following commands:
 
 
