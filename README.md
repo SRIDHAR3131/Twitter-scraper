@@ -83,6 +83,7 @@ Here I used MongoDB Compass for connecting my database server below mentioned fo
         
 # To create download button for JSON or CSV
 Download button appear only after the getting data please note and it will auto disappear after download
+
     @st.cache_data
     def convert_df(T_df ):
         return T_df .to_csv().encode('utf-8')
@@ -98,5 +99,5 @@ Download button appear only after the getting data please note and it will auto 
 This code snippet uses the TwitterSearchScraper class from the snscrape library to scrape tweets from a Twitter user based on the input from the Streamlit user interface. It then connects to a MongoDB server, creates a database called twitter_db, and stores each tweet in a collection called tweets. Finally, it creates a Streamlit user interface that allows the user to input a Twitter username and number of tweets to scrape.
 
 
-Acknowledgements
+Acknowledgements:
 This project was inspired by the snscrape documentation, the pymongo documentation, the Streamlit documentation, and the Twitter API documentation.
