@@ -50,7 +50,7 @@ with col1.form("entry_form", clear_on_submit=True):
     D_obj1=c3.date_input("To")
     date1=D_obj1.strftime('%Y-%m-%d')
 
-    T_count=c4.number_input("Maximum tweet",1,1000,format='%i')
+    T_count=c4.number_input("Maximum tweet",1,1000,20,format='%i')
 
     submitted=st.form_submit_button('submit')
     if submitted:
