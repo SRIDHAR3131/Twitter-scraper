@@ -27,10 +27,12 @@ Here is an example Python code snippet that shows how to create a Streamlit user
     import streamlit as st
 
 # Connect to the MongoDB server
-Here I used MongoDB atlas for connecting my database server below mentioned for reference purpose only please read the documentation!
+Here I used MongoDB Compass for connecting my database server below mentioned for reference purpose only please read the documentation!
 
-![Screenshot 2023-03-15 155437](https://user-images.githubusercontent.com/68391060/225281494-d99a57f5-39a5-4186-8171-5acf692d3ab6.png)
+![Screenshot 2023-03-15 155437](https://user-images.githubusercontent.com/68391060/225282419-b944e65c-0731-4494-922f-957f6cf07030.png)
 
+
+    #sample crete your own database foe secured purpose
     client = MongoClient('mongodb://localhost:27017/')
 
 ![Screenshot 2023-03-15 155536](https://user-images.githubusercontent.com/68391060/225281554-d345dd01-cb2e-43d8-9b4a-d6229513e8e9.png)
@@ -85,9 +87,8 @@ Here I used MongoDB atlas for connecting my database server below mentioned for 
                         data=csv,
                         file_name='user_data.csv',
                         
- ![Screenshot 2023-03-15 155211](https://user-images.githubusercontent.com/68391060/225280597-5ec0731e-6e5c-4216-8623-513cd2c0f763.png)
-                    mime='text/csv'
-                        )
+![Screenshot 2023-03-15 155211](https://user-images.githubusercontent.com/68391060/225282672-761bc643-a81b-4ea4-a15a-32df794e74ab.png)
+
 
 This code snippet uses the TwitterSearchScraper class from the snscrape library to scrape tweets from a Twitter user based on the input from the Streamlit user interface. It then connects to a MongoDB server, creates a database called twitter_db, and stores each tweet in a collection called tweets. Finally, it creates a Streamlit user interface that allows the user to input a Twitter username and number of tweets to scrape.
 
