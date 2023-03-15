@@ -32,23 +32,19 @@ Here I used MongoDB Compass for connecting my database server below mentioned fo
 ![Screenshot 2023-03-15 155437](https://user-images.githubusercontent.com/68391060/225282419-b944e65c-0731-4494-922f-957f6cf07030.png)
 
 
-    #this is sample code crete your own database using username and password for secured purpose
+    #this is sample mongodb string crete your own database using username and password for secured purpose
     client = MongoClient('mongodb://localhost:27017/')
 # Fetching the user input in Database!!
 
 ![Screenshot 2023-03-15 155536](https://user-images.githubusercontent.com/68391060/225281554-d345dd01-cb2e-43d8-9b4a-d6229513e8e9.png)
 
 # Create a Streamlit user interface
+To get user input from streamlit app we can create the default function like 
+text_input(),date_input() and number_input() for keyword search, date and to limit the tweet count respectively.
  
-    keyword =c1.text_input("Enter keyword",placeholder='Enter keyword')
-
-    D_obj=c2.date_input("From")
-    date0=D_obj.strftime('%Y-%m-%d')
-
-    D_obj1=c3.date_input("To")
-    date1=D_obj1.strftime('%Y-%m-%d')
-
-    T_count=c4.number_input("Maximum tweet",1,1000,format='%i')
+    st.text_input("Enter keyword",placeholder='Enter keyword')
+    date=st.date_input("From")
+    st.number_input("Maximum tweet",1,1000,20,format='%i')
 
 
 ![Screenshot 2023-03-15 160302](https://user-images.githubusercontent.com/68391060/225283303-500f642e-b7d5-4572-a93e-a26b96151fbe.png)
@@ -56,7 +52,7 @@ Here I used MongoDB Compass for connecting my database server below mentioned fo
 
 # Scrape the tweets and using pandas to create DataFrame
 The below code is for reference you can add user language,url,likecount,retweetcount,source and more.
-Using 'for loop' we can iterate over the tweet functions.
+To raise query in TwitterSearchScraper() module for keyword and datetime and then iterate over the tweet functions.
   
       
         tweets=sntwit.TwitterSearchScraper(query).get_items()
@@ -73,7 +69,7 @@ Using 'for loop' we can iterate over the tweet functions.
                          'ID',
                          'USER',
                          'CONTENT'])
-        col2.dataframe(T_df)
+        st.dataframe(T_df)
 
 Using pandas library to create columns and listed the user details 
 To display in streamlit we can add st.dataframe for display in streamlit app. 
