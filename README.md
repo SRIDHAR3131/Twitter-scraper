@@ -39,7 +39,7 @@ Copy code
 
     T_count=c4.number_input("Maximum tweet",1,1000,format='%i')
 
-# Scrape the tweets and store them in the database
+# Scrape the tweets and using pandas to create DataFrame
     if col2.button('get data'):
        col2.write("getting data please wait!!")
 
