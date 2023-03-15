@@ -3,7 +3,7 @@ This project demonstrates how to scrape Twitter data using the snscrape Python l
 
 
 
-Installation![Screenshot 2023-03-14 154838](https://user-images.githubusercontent.com/68391060/225277058-58cb0ff3-1aef-44a4-a71b-1e7ce72b9d5c.png)
+
 
 To use this project, you will need to install the snscrape, pymongo, and streamlit libraries. You can do this by running the following commands:
 
@@ -21,8 +21,7 @@ To scrape Twitter data using snscrape, store it in a MongoDB database, and creat
 
 Here is an example Python code snippet that shows how to create a Streamlit user interface to get input from the user and scrape tweets from a Twitter user based on the input:
 
-python
-Copy code
+
     import snscrape.modules.twitter as sntwitter
     from pymongo import MongoClient
     import streamlit as st
@@ -30,7 +29,11 @@ Copy code
 # Connect to the MongoDB server
 Here I used MongoDB atlas for connecting my database server below mentioned for reference purpose only please read the documentation!
 
+![Screenshot 2023-03-15 155437](https://user-images.githubusercontent.com/68391060/225281494-d99a57f5-39a5-4186-8171-5acf692d3ab6.png)
+
     client = MongoClient('mongodb://localhost:27017/')
+
+![Screenshot 2023-03-15 155536](https://user-images.githubusercontent.com/68391060/225281554-d345dd01-cb2e-43d8-9b4a-d6229513e8e9.png)
 
 # Create a Streamlit user interface
  
@@ -44,7 +47,11 @@ Here I used MongoDB atlas for connecting my database server below mentioned for 
 
     T_count=c4.number_input("Maximum tweet",1,1000,format='%i')
 
+
+![Screenshot 2023-03-15 154149](https://user-images.githubusercontent.com/68391060/225279599-a34ef7e3-6b73-4cf1-ade9-381a514ba595.png)
+
 # Scrape the tweets and using pandas to create DataFrame
+
     if col2.button('get data'):
        col2.write("getting data please wait!!")
 
@@ -77,13 +84,13 @@ Here I used MongoDB atlas for connecting my database server below mentioned for 
                         label="Download CSV ",
                         data=csv,
                         file_name='user_data.csv',
-                        mime='text/csv'
+                        
+ ![Screenshot 2023-03-15 155211](https://user-images.githubusercontent.com/68391060/225280597-5ec0731e-6e5c-4216-8623-513cd2c0f763.png)
+                    mime='text/csv'
                         )
 
 This code snippet uses the TwitterSearchScraper class from the snscrape library to scrape tweets from a Twitter user based on the input from the Streamlit user interface. It then connects to a MongoDB server, creates a database called twitter_db, and stores each tweet in a collection called tweets. Finally, it creates a Streamlit user interface that allows the user to input a Twitter username and number of tweets to scrape.
 
-Contributing
-If you would like to contribute to this project, feel free to open a pull request. You can also submit bug reports or feature requests by opening an issue.
 
 Acknowledgements
 This project was inspired by the snscrape documentation, the pymongo documentation, the Streamlit documentation, and the Twitter API documentation.
