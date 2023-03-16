@@ -11,7 +11,7 @@ import datetime
 #-------------------------------PAGE CONGIGURATION--------------------------------------------------------
 #to create webpage layout use st.set_page_config()
 st.set_page_config(
-    page_title="Data scraper", 
+    page_title="Twitter data scraper", 
     layout="wide", 
     page_icon=":unlock:")
 
