@@ -43,7 +43,7 @@ To get user input from streamlit app we can create the default function like
 text_input(),date_input() and number_input() for keyword search, date and to limit the tweet count respectively.
  
     st.text_input("Enter keyword",placeholder='Enter keyword')
-    date=st.date_input("From")
+    st.date_input("From")
     st.number_input("Maximum tweet",1,1000,20,format='%i')
 
 
