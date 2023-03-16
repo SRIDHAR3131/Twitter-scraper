@@ -76,8 +76,8 @@ with col1.form("entry_form", clear_on_submit=True):
 
 col2.markdown("DataFrame showned here please select here")
 #if the user select the 'get data' button it will show the entire column which is created using pandas in the following code
-if col2.button('get data'):
-    col2.write("getting data please wait!!")
+if col2.button('Get Data'):
+    col2.write("Scraping data please wait!!")
 
     maxTweets =T_count
     #query need formatted string method for access user input.
