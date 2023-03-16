@@ -47,7 +47,8 @@ text_input(),date_input() and number_input() for keyword search, date and to lim
     st.number_input("Maximum tweet",1,1000,20,format='%i')
 
 
-![Screenshot 2023-03-15 160302](https://user-images.githubusercontent.com/68391060/225283303-500f642e-b7d5-4572-a93e-a26b96151fbe.png)
+![Screenshot 2023-03-16 120839](https://user-images.githubusercontent.com/68391060/225535998-3afc5a05-8a78-4ba1-9cca-8bf7eda7fd43.png)
+
 
 
 # Scrape the tweets and using pandas to create DataFrame
@@ -74,7 +75,8 @@ To raise query in TwitterSearchScraper() module for keyword and datetime and the
 Using pandas library to create columns and listed the user details 
 To display in streamlit we can add st.dataframe for display in streamlit app. 
 
-![Screenshot 2023-03-15 154149](https://user-images.githubusercontent.com/68391060/225279599-a34ef7e3-6b73-4cf1-ade9-381a514ba595.png)
+![Screenshot 2023-03-16 121135](https://user-images.githubusercontent.com/68391060/225535937-56cfccb0-eabe-4d98-b070-c55188be25eb.png)
+
         
 # To create download button for JSON or CSV
 Please note:Download button appear only after the getting data it will popped out in the below dataframe and it will auto disappear after required file downloaded
