@@ -74,7 +74,7 @@ with col1.form("entry_form", clear_on_submit=True):
 
 #---------------------------------------------------CREATING DATA FRAME---------------------------------------------------------------
 
-col2.markdown("DataFrame showned here please select here")
+col2.markdown("Please select here to pop out the ***:red[DataFrame]***")
 #if the user select the 'get data' button it will show the entire column which is created using pandas in the following code
 if col2.button('Get Data'):
     col2.write("Scraping data please wait!!")
