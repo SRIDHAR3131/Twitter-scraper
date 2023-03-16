@@ -11,7 +11,7 @@ import datetime
 #-------------------------------PAGE CONGIGURATION--------------------------------------------------------
 #to create webpage layout use st.set_page_config()
 st.set_page_config(
-    page_title="St.twitter", 
+    page_title="Data scraper", 
     layout="wide", 
     page_icon=":unlock:")
 
@@ -33,10 +33,12 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 #------------------------------------------Connect to the MongoDB server--------------------------------------
-#connecting database through local host 
+#connecting database through local host
 client = MongoClient('mongodb://localhost:27017/')
-#if database is exists use this follwinng commend get_databaase to access the database
+
+#if database is exists use this fololwing commend get_databaase to access the database
 db = client.get_database("Twitter")
+
 #get_collection from 'user_data' the name should be readable!
 collection = db.get_collection("user_data")
 
