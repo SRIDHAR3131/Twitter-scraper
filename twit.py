@@ -55,7 +55,7 @@ T_count=c4.number_input("Maximum tweet",1,1000,20,format='%i')
  #if the user select submit button it will scrape the date from twitter with help of snscrape
 if col1.button('submit'):
     col2.write("***:red[Scraping data]*** please wait!!")        
-    col2.success('***Data scraped***')
+
 #---------------------------------------------------CREATING DATA FRAME---------------------------------------------------------------
 
     maxTweets =T_count
