@@ -40,7 +40,7 @@ col1, col2 = st.columns([2, 2])
 col1.markdown("Please fill credentials")
 
 #the below code is for user input content shown in streamlit app
-c1, c2, c3, c4 = st.columns(4,gap='small')
+c1, c2, c3, c4 = col1.columns(4,gap='small')
 # Create variables
 keyword =c1.text_input("Enter keyword",placeholder='Enter keyword') 
 
@@ -55,7 +55,7 @@ T_count=c4.number_input("Maximum tweet",1,1000,20,format='%i')
  #if the user select submit button it will scrape the date from twitter with help of snscrape
 if col1.button('submit'):
     col2.write("***:red[Scraping data]*** please wait!!")        
-
+    col2.success('***Data scraped***')
 #---------------------------------------------------CREATING DATA FRAME---------------------------------------------------------------
 
     maxTweets =T_count
@@ -124,7 +124,7 @@ if col1.button('submit'):
         return T_df .to_csv().encode('utf-8')
     csv = convert_df(T_df )
     #this buttonn for downloading CSV format
-    col2.download_button(
+    cl2.download_button(
                         label="Download CSV file ",
                         data=csv,
                         file_name='user_data.csv',
@@ -137,7 +137,7 @@ if col1.button('submit'):
     json = convert_df(T_df )
     
     #this button for downloading JSON format
-    col2.download_button(
+    cl3.download_button(
                         label="Download JSON file",
                         data=json,
                         file_name='user_data.json',
