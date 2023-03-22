@@ -1,4 +1,4 @@
-#import the python library and module
+#import python library and module
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -32,54 +32,31 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-#------------------------------------------Connect to the MongoDB server--------------------------------------
-#connecting database through local host
-client = MongoClient('mongodb://localhost:27017/')
-
-#if database is exists use this fololwing commend get_databaase to access the database
-db = client.get_database("Twitter")
-
-#get_collection from 'user_data' the name should be readable!
-collection = db.get_collection("user_data")
 
 #-----------------------------------------------------GETTING USER DATA----------------------------------------------
 #to create column in streamlit using st.columns()
 col1, col2 = st.columns([2, 2])
 
 col1.markdown("Please fill credentials")
-with col1.form("entry_form", clear_on_submit=True):
 
-    #the below code is for user input content shown in streamlit app
-    c1, c2, c3, c4 = st.columns(4,gap='small')
-    # Create a 4 variable for satisfy
-    keyword =c1.text_input("Enter keyword",placeholder='Enter keyword')
+#the below code is for user input content shown in streamlit app
+c1, c2, c3, c4 = st.columns(4,gap='small')
+# Create variables
+keyword =c1.text_input("Enter keyword",placeholder='Enter keyword') 
 
-    D_obj=c2.date_input("From")
-    date0=D_obj.strftime('%Y-%m-%d')
+D_obj=c2.date_input("Start data")
+date0=D_obj.strftime('%Y-%m-%d')
 
-    D_obj1=c3.date_input("To")
-    date1=D_obj1.strftime('%Y-%m-%d')
-    #In scNSRE
+D_obj1=c3.date_input("End Date")
+date1=D_obj1.strftime('%Y-%m-%d')
 
-    T_count=c4.number_input("Maximum tweet",1,1000,20,format='%i')
+T_count=c4.number_input("Maximum tweet",1,1000,20,format='%i')
     
-    #if the user select submit button the keyword arguments inserted into mongoDB database
-    submitted=st.form_submit_button('submit')
-    if submitted:
-        
-#--------------------------------------------------INERTING INTO DATABASE-------------------------------------------------------
-        #collecting user input and insert into database in the follwoing keywords
-        collection.insert_one({'keyword':keyword, 'From data': date0, 'To date': date1, 'Tweetcount':T_count})
-        #st.success for return the data to be saved in database 
-        st.success("Data saved")
-
+ #if the user select submit button it will scrape the date from twitter with help of snscrape
+if col1.button('submit'):
+    col2.write("***:red[Scraping data]*** please wait!!")        
 
 #---------------------------------------------------CREATING DATA FRAME---------------------------------------------------------------
-
-col2.markdown("Please select here to pop out the ***:red[DataFrame]***")
-#if the user select the 'get data' button it will show the entire column which is created using pandas in the following code
-if col2.button('Get Data'):
-    col2.write("Scraping data please wait!!")
 
     maxTweets =T_count
     #query need formatted string method for access user input.
@@ -95,7 +72,7 @@ if col2.button('Get Data'):
         #using conditonal statement to limit the tweet count 
         if i>maxTweets:
             
-            #to break mehtod for if user input is exided it will thrown warning messege
+            #to break mehtod for if user tweet count is exided it will thrown warning messege
             break
         add.append([
                     tweet.date, 
@@ -123,6 +100,23 @@ if col2.button('Get Data'):
                                 'URL'])
     #Display an interactive table use st.dataframe 
     col2.dataframe(T_df)
+    Data=T_df.to_json()
+
+#------------------------------------------Connect to the MongoDB server--------------------------------------
+cl1, cl2, cl3= col2.columns(3,gap='small')
+
+cl1.button('Upload MongoDB')
+#connecting database through local host
+client = MongoClient('mongodb://localhost:27017/')
+
+#if database is exists use this fololwing commend get_databaase to access the database
+db = client.get_database("Twitter")
+
+#get_collection from 'user_data' the name should be readable!
+collection = db.get_collection("user_data")
+
+#collecting user input and insert into database in the follwoing keys and values are user information
+collection.insert_one({'keyword':keyword, 'start data': date0, ' end date': date1, 'Tweetcount':T_count,'scaped Data':Data})
 
 
 #-----------------------------------------DOWNLOAD BUTTON 1 AND 2-----------------------------------------------------------------    
@@ -133,7 +127,7 @@ if col2.button('Get Data'):
     csv = convert_df(T_df )
     #this buttonn for downloading CSV format
     col2.download_button(
-                        label="Download CSV ",
+                        label="Download CSV file ",
                         data=csv,
                         file_name='user_data.csv',
                         mime='text/csv'
@@ -144,9 +138,9 @@ if col2.button('Get Data'):
         return T_df .to_json().encode('utf-8')
     json = convert_df(T_df )
     
-    #this buttonn for downloading JSON format
+    #this button for downloading JSON format
     col2.download_button(
-                        label="Download JSON",
+                        label="Download JSON file",
                         data=json,
                         file_name='user_data.json',
                         mime='text/json')
