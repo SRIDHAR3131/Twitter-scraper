@@ -103,20 +103,18 @@ if col1.button('submit'):
     Data=T_df.to_json()
 
 #------------------------------------------Connect to the MongoDB server--------------------------------------
-cl1, cl2, cl3= col2.columns(3,gap='small')
+    cl1, cl2, cl3= col2.columns(3,gap='small')
 
-cl1.button('Upload MongoDB')
-#connecting database through local host
-client = MongoClient('mongodb://localhost:27017/')
+    cl1.button('Upload MongoDB')
+    #connecting database through local host
+    client = MongoClient("mongodb+srv://sridhar15:HeyramSridhar@cluster0.gkifau6.mongodb.net/test")
 
-#if database is exists use this fololwing commend get_databaase to access the database
-db = client.get_database("Twitter")
+    #if database is exists use this fololwing commend get_databaase to access the database
+    db = client.get_database("Twitter")
+    collection = db.get_collection("user_data")
 
-#get_collection from 'user_data' the name should be readable!
-collection = db.get_collection("user_data")
-
-#collecting user input and insert into database in the follwoing keys and values are user information
-collection.insert_one({'keyword':keyword, 'start data': date0, ' end date': date1, 'Tweetcount':T_count,'scaped Data':Data})
+    #collecting user input and insert into database in the follwoing keys and values are user information
+    collection.insert_one({'keyword':keyword, 'start data': date0, ' end date': date1, 'Tweetcount':T_count,'scaped Data':Data})
 
 
 #-----------------------------------------DOWNLOAD BUTTON 1 AND 2-----------------------------------------------------------------    
