@@ -45,8 +45,6 @@ text_input(),date_input() and number_input() for keyword search, date and to lim
 ![Screenshot 2023-03-22 195601](https://user-images.githubusercontent.com/68391060/226937044-04790cb6-a224-4bc7-9a8f-bf69ed474d6f.png)
 
 
-
-
 # Scrape the tweets and using pandas to create DataFrame
 The below code is for reference you can add user language,url,likecount,retweetcount,source and more.
 To raise query in TwitterSearchScraper() module for keyword and datetime and then iterate over the tweet functions.
