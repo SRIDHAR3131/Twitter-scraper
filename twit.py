@@ -106,7 +106,7 @@ if col1.button('submit'):
     cl1, cl2, cl3= col2.columns(3,gap='small')
 
     cl1.button('Upload MongoDB')
-    #connecting database through local host
+    #connecting database through atlas in MongoDB
     client = MongoClient("mongodb+srv://sridhar15:HeyramSridhar@cluster0.gkifau6.mongodb.net/test")
 
     #if database is exists use this fololwing commend get_databaase to access the database
@@ -114,7 +114,7 @@ if col1.button('submit'):
     collection = db.get_collection("user_data")
 
     #collecting user input and insert into database in the follwoing keys and values are user information
-    collection.insert_one({'keyword':keyword, 'start data': date0, ' end date': date1, 'Tweetcount':T_count,'scaped Data':Data})
+    collection.insert_one({'keyword':keyword, 'start data': date0, ' end date': date1, 'Tweetcount':T_count,'srcaped Data':Data})
 
 
 #-----------------------------------------DOWNLOAD BUTTON 1 AND 2-----------------------------------------------------------------    
