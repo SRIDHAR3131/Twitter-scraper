@@ -32,13 +32,6 @@ Here I used MongoDB Compass for connecting my database server below mentioned fo
 ![Screenshot 2023-03-15 155437](https://user-images.githubusercontent.com/68391060/225282419-b944e65c-0731-4494-922f-957f6cf07030.png)
 
 
-    #this is sample mongodb string create your own database using username and password for secured purpose
-    client = MongoClient('mongodb://localhost:27017/')
-# Fetching the user input in Database!!
-
-![Screenshot 2023-03-22 200755](https://user-images.githubusercontent.com/68391060/226938890-218e050b-7c54-4836-8b0c-a09bd4a7f11e.png)
-
-
 
 # Create a Streamlit user interface
 To get user input from streamlit app we can create the default function like 
@@ -96,6 +89,13 @@ Please note:Download button appear only after the getting data it will popped ou
                         
 
 ![Screenshot 2023-03-22 195842](https://user-images.githubusercontent.com/68391060/226937418-e090e668-7d66-434b-9a27-a82366ae542f.png)
+
+    #this is sample locahost mongodb database
+    client = MongoClient('mongodb://localhost:27017/')
+# Fetching the user input in Database!!
+
+![Screenshot 2023-03-22 200755](https://user-images.githubusercontent.com/68391060/226938890-218e050b-7c54-4836-8b0c-a09bd4a7f11e.png)
+
 
 
 This code snippet uses the TwitterSearchScraper class from the snscrape library to scrape tweets from a Twitter user based on the input from the Streamlit user interface. It then connects to a MongoDB server, creates a database called twitter_db, and stores each tweet in a collection called tweets. Finally, it creates a Streamlit user interface that allows the user to input a Twitter username and number of tweets to scrape.
