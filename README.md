@@ -36,7 +36,8 @@ Here I used MongoDB Compass for connecting my database server below mentioned fo
     client = MongoClient('mongodb://localhost:27017/')
 # Fetching the user input in Database!!
 
-![Screenshot 2023-03-22 195923](https://user-images.githubusercontent.com/68391060/226938054-a6093574-82d0-406a-91be-8da48bb1cb62.png)
+![Screenshot 2023-03-22 200755](https://user-images.githubusercontent.com/68391060/226938890-218e050b-7c54-4836-8b0c-a09bd4a7f11e.png)
+
 
 
 # Create a Streamlit user interface
