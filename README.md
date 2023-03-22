@@ -44,10 +44,11 @@ text_input(),date_input() and number_input() for keyword search, date and to lim
  
     st.text_input("Enter keyword",placeholder='Enter keyword')
     st.date_input("From")
-    st.number_input("Maximum tweet",1,1000,20,format='%i')
+    st.number_input("Maximum tweet",20,1000,20,format='%i')
 
 
-![Screenshot 2023-03-16 120839](https://user-images.githubusercontent.com/68391060/225535998-3afc5a05-8a78-4ba1-9cca-8bf7eda7fd43.png)
+![Screenshot 2023-03-22 195601](https://user-images.githubusercontent.com/68391060/226937044-04790cb6-a224-4bc7-9a8f-bf69ed474d6f.png)
+
 
 
 
@@ -75,7 +76,8 @@ To raise query in TwitterSearchScraper() module for keyword and datetime and the
 Using pandas library to create columns and listed the user details 
 To display in streamlit we can add st.dataframe for display in streamlit app. 
 
-![Screenshot 2023-03-16 121135](https://user-images.githubusercontent.com/68391060/225535937-56cfccb0-eabe-4d98-b070-c55188be25eb.png)
+
+![Screenshot 2023-03-22 195821](https://user-images.githubusercontent.com/68391060/226937302-ca028167-1613-46e3-94f2-6e2d1e186695.png)
 
         
 # To create download button for JSON or CSV
@@ -90,7 +92,8 @@ Please note:Download button appear only after the getting data it will popped ou
                         data=csv,
                         file_name='user_data.csv',
                         
-![Screenshot 2023-03-15 155211](https://user-images.githubusercontent.com/68391060/225282672-761bc643-a81b-4ea4-a15a-32df794e74ab.png)
+
+![Screenshot 2023-03-22 195842](https://user-images.githubusercontent.com/68391060/226937418-e090e668-7d66-434b-9a27-a82366ae542f.png)
 
 
 This code snippet uses the TwitterSearchScraper class from the snscrape library to scrape tweets from a Twitter user based on the input from the Streamlit user interface. It then connects to a MongoDB server, creates a database called twitter_db, and stores each tweet in a collection called tweets. Finally, it creates a Streamlit user interface that allows the user to input a Twitter username and number of tweets to scrape.
