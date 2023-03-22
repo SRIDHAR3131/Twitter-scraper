@@ -119,28 +119,27 @@ if col1.button('submit'):
 
 #-----------------------------------------DOWNLOAD BUTTON 1 AND 2-----------------------------------------------------------------    
     #Download button pop out after the data scapping displayed in webpage!
-    @st.cache_data           #please note: Cache the conversion to prevent computation on every rerun
-    def convert_df(T_df ):  
-        return T_df .to_csv().encode('utf-8')
-    csv = convert_df(T_df )
-    #this buttonn for downloading CSV format
+           #please note: Cache the conversion to prevent computation on every rerun
+    @st.cache_data
+    def convert_df(T_df ):
+        return T_df.to_csv().encode('utf-8')
+    csv = convert_df(T_df)
     cl2.download_button(
-                        label="Download CSV file ",
-                        data=csv,
-                        file_name='user_data.csv',
-                        mime='text/csv'
-                        )
+                            label="Download CSV file ",
+                            data=csv,
+                            file_name='user_data.csv',
+                            mime='text/csv'
+                                    )
 
     @st.cache_data
     def convert_df(T_df ):
-        return T_df .to_json().encode('utf-8')
-    json = convert_df(T_df )
-    
-    #this button for downloading JSON format
+        return T_df.to_json().encode('utf-8')
+    json = convert_df(T_df)
     cl3.download_button(
-                        label="Download JSON file",
-                        data=json,
-                        file_name='user_data.json',
-                        mime='text/json')
+                            label="Download JSON file",
+                            data=json,
+                            file_name='user_data.json',
+                            mime='text/json')
+
     
    #after file get downloaded it will disappear the download button for user need to enter fill new credentials! 
