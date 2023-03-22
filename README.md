@@ -36,7 +36,8 @@ Here I used MongoDB Compass for connecting my database server below mentioned fo
     client = MongoClient('mongodb://localhost:27017/')
 # Fetching the user input in Database!!
 
-![Screenshot 2023-03-15 155536](https://user-images.githubusercontent.com/68391060/225281554-d345dd01-cb2e-43d8-9b4a-d6229513e8e9.png)
+![Screenshot 2023-03-22 195923](https://user-images.githubusercontent.com/68391060/226938054-a6093574-82d0-406a-91be-8da48bb1cb62.png)
+
 
 # Create a Streamlit user interface
 To get user input from streamlit app we can create the default function like 
