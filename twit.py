@@ -114,7 +114,7 @@ if col1.button('submit'):
     def convert_df(T_df ):
         return T_df.to_csv().encode('utf-8')
     csv = convert_df(T_df)
-    cl2.download_button(
+    cl1.download_button(
                             label="Download CSV file ",
                             data=csv,
                             file_name='user_data.csv',
@@ -125,7 +125,7 @@ if col1.button('submit'):
     def convert_df(T_df ):
         return T_df.to_json().encode('utf-8')
     json = convert_df(T_df)
-    cl3.download_button(
+    cl2.download_button(
                             label="Download JSON file",
                             data=json,
                             file_name='user_data.json',
@@ -136,7 +136,7 @@ if col1.button('submit'):
     cl1.button('Upload MongoDB')
     #connecting database through atlas in MongoDB
     
-    client =MongoClient("mongodb://localhost:27017/")
+    client =MongoClient("mongodb+srv://sridhar15:HeyramSridhar@cluster0.gkifau6.mongodb.net/test")
 
     #if database is exists use this fololwing commend get_databaase to access the database
     db = client.get_database("Twitter")
