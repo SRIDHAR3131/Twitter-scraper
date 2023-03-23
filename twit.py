@@ -105,8 +105,7 @@ if col1.button('submit'):
 
 
 #------------------------------------------Connect to the MongoDB server--------------------------------------
-    cl1, cl2, cl3= col2.columns(3,gap='small')    
-    cl1.button('Upload MongoDB')
+  
     #connecting database through atlas in MongoDB
     
     client =MongoClient("mongodb+srv://sridhar15:HeyramSridhar@cluster0.gkifau6.mongodb.net/test")
@@ -118,18 +117,18 @@ if col1.button('submit'):
     #collecting user input and insert into database in the follwoing keys and values are user information
     collection.insert_one({'keyword':keyword, 'start data': date0, ' end date': date1, 'Tweetcount':T_count,'srcaped Data':Data})
 
-    
-   #after file get downloaded it will disappear the download button for user need to enter fill new credentials! 
+    col2.success('***Successfully scraped data uploaded to Database!!!***')
+  
 
-#-----------------------------------------DOWNLOAD BUTTON 1 AND 2-----------------------------------------------------------------    
-
+#-----------------------------------------DOWNLOAD BUTTON 1 AND 2-----------------------------------------------------------------     
     #Download button pop out after the data scapping displayed in webpage!
            #please note: Cache the conversion to prevent computation on every rerun
+    col2.write('***Please select required format to download***')
     @st.cache_data
     def convert_df(T_df ):
         return T_df.to_csv().encode('utf-8')
     csv = convert_df(T_df)
-    cl2.download_button(
+    col2.download_button(
                             label="Download CSV file ",
                             data=csv,
                             file_name='user_data.csv',
@@ -140,9 +139,10 @@ if col1.button('submit'):
     def convert_df(T_df ):
         return T_df.to_json().encode('utf-8')
     json = convert_df(T_df)
-    cl3.download_button(
+    col2.download_button(
                             label="Download JSON file",
                             data=json,
                             file_name='user_data.json',
                             mime='text/json')
 
+ #after file get downloaded it will disappear the download button for user need to enter fill new credentials! 
