@@ -112,8 +112,8 @@ if col1.button('submit'):
     #client =MongoClient("mongodb+srv://sridhar15:HeyramSridhar@cluster0.gkifau6.mongodb.net/test")
 
     #if database is exists use this fololwing commend get_databaase to access the database
-    db = client.get_database("Twitter")
-    collection = db.get_collection("user_data")
+    #db = client.get_database("Twitter")
+    #collection = db.get_collection("user_data")
 
     #collecting user input and insert into database in the follwoing keys and values are user information
     collection.insert_one({'keyword':keyword, 'start data': date0, ' end date': date1, 'Tweetcount':T_count,'srcaped Data':Data})
