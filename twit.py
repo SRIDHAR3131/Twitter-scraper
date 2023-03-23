@@ -109,7 +109,7 @@ if col1.button('submit'):
     cl1.button('Upload MongoDB')
     #connecting database through atlas in MongoDB
     
-    client =MongoClient("mongodb+srv://<credentials>@cluster0.gkifau6.mongodb.net/test")
+    client =MongoClient("mongodb+srv://sridhar15:HeyramSridhar@cluster0.gkifau6.mongodb.net/test")
 
     #if database is exists use this fololwing commend get_databaase to access the database
     db = client.get_database("Twitter")
