@@ -108,7 +108,7 @@ if col1.button('submit'):
     cl1.button('Upload MongoDB')
     #connecting database through atlas in MongoDB
     
-    client = pymongo.MongoClient("mongodb+srv://sridhar15:HeyramSridhar@cluster0.gkifau6.mongodb.net/?retryWrites=true&w=majority", server_api=ServerApi('1'))
+    client =MongoClient("mongodb+srv://sridhar15:HeyramSridhar@cluster0.gkifau6.mongodb.net/?retryWrites=true&w=majority", server_api=ServerApi('1'))
     db = client.test
 
     #if database is exists use this fololwing commend get_databaase to access the database
