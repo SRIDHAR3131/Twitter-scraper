@@ -104,39 +104,12 @@ if col1.button('submit'):
     Data=T_df.to_json()
 
 
-
-
-#-----------------------------------------DOWNLOAD BUTTON 1 AND 2-----------------------------------------------------------------    
-    cl1, cl2, cl3= col2.columns(3,gap='small')
-    #Download button pop out after the data scapping displayed in webpage!
-           #please note: Cache the conversion to prevent computation on every rerun
-    @st.cache_data
-    def convert_df(T_df ):
-        return T_df.to_csv().encode('utf-8')
-    csv = convert_df(T_df)
-    cl1.download_button(
-                            label="Download CSV file ",
-                            data=csv,
-                            file_name='user_data.csv',
-                            mime='text/csv'
-                                    )
-
-    @st.cache_data
-    def convert_df(T_df ):
-        return T_df.to_json().encode('utf-8')
-    json = convert_df(T_df)
-    cl2.download_button(
-                            label="Download JSON file",
-                            data=json,
-                            file_name='user_data.json',
-                            mime='text/json')
 #------------------------------------------Connect to the MongoDB server--------------------------------------
-
-
+    cl1, cl2, cl3= col2.columns(3,gap='small')    
     cl1.button('Upload MongoDB')
     #connecting database through atlas in MongoDB
     
-    client =MongoClient("mongodb+srv://sridhar15:HeyramSridhar@cluster0.gkifau6.mongodb.net/test")
+    #client =MongoClient("mongodb+srv://sridhar15:HeyramSridhar@cluster0.gkifau6.mongodb.net/test")
 
     #if database is exists use this fololwing commend get_databaase to access the database
     db = client.get_database("Twitter")
@@ -147,3 +120,29 @@ if col1.button('submit'):
 
     
    #after file get downloaded it will disappear the download button for user need to enter fill new credentials! 
+
+#-----------------------------------------DOWNLOAD BUTTON 1 AND 2-----------------------------------------------------------------    
+
+    #Download button pop out after the data scapping displayed in webpage!
+           #please note: Cache the conversion to prevent computation on every rerun
+    @st.cache_data
+    def convert_df(T_df ):
+        return T_df.to_csv().encode('utf-8')
+    csv = convert_df(T_df)
+    cl2.download_button(
+                            label="Download CSV file ",
+                            data=csv,
+                            file_name='user_data.csv',
+                            mime='text/csv'
+                                    )
+
+    @st.cache_data
+    def convert_df(T_df ):
+        return T_df.to_json().encode('utf-8')
+    json = convert_df(T_df)
+    cl3.download_button(
+                            label="Download JSON file",
+                            data=json,
+                            file_name='user_data.json',
+                            mime='text/json')
+
