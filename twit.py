@@ -103,23 +103,11 @@ if col1.button('submit'):
     col2.dataframe(T_df)
     Data=T_df.to_json()
 
-#------------------------------------------Connect to the MongoDB server--------------------------------------
-    cl1, cl2, cl3= col2.columns(3,gap='small')
 
-    cl1.button('Upload MongoDB')
-    #connecting database through atlas in MongoDB
-    
-    client =MongoClient("mongodb://localhost:27017/")
-
-    #if database is exists use this fololwing commend get_databaase to access the database
-    db = client.get_database("Twitter")
-    collection = db.get_collection("user_data")
-
-    #collecting user input and insert into database in the follwoing keys and values are user information
-    collection.insert_one({'keyword':keyword, 'start data': date0, ' end date': date1, 'Tweetcount':T_count,'srcaped Data':Data})
 
 
 #-----------------------------------------DOWNLOAD BUTTON 1 AND 2-----------------------------------------------------------------    
+    cl1, cl2, cl3= col2.columns(3,gap='small')
     #Download button pop out after the data scapping displayed in webpage!
            #please note: Cache the conversion to prevent computation on every rerun
     @st.cache_data
@@ -142,6 +130,20 @@ if col1.button('submit'):
                             data=json,
                             file_name='user_data.json',
                             mime='text/json')
+#------------------------------------------Connect to the MongoDB server--------------------------------------
+
+
+    cl1.button('Upload MongoDB')
+    #connecting database through atlas in MongoDB
+    
+    client =MongoClient("mongodb://localhost:27017/")
+
+    #if database is exists use this fololwing commend get_databaase to access the database
+    db = client.get_database("Twitter")
+    collection = db.get_collection("user_data")
+
+    #collecting user input and insert into database in the follwoing keys and values are user information
+    collection.insert_one({'keyword':keyword, 'start data': date0, ' end date': date1, 'Tweetcount':T_count,'srcaped Data':Data})
 
     
    #after file get downloaded it will disappear the download button for user need to enter fill new credentials! 
