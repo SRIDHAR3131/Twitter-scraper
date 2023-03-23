@@ -116,7 +116,7 @@ if col1.button('submit'):
     #collection = db.get_collection("user_data")
 
     #collecting user input and insert into database in the follwoing keys and values are user information
-    collection.insert_one({'keyword':keyword, 'start data': date0, ' end date': date1, 'Tweetcount':T_count,'srcaped Data':Data})
+    #collection.insert_one({'keyword':keyword, 'start data': date0, ' end date': date1, 'Tweetcount':T_count,'srcaped Data':Data})
 
     
    #after file get downloaded it will disappear the download button for user need to enter fill new credentials! 
