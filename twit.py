@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import snscrape.modules.twitter as sntwit
 from pymongo import MongoClient
-from pymongo.server_api import ServerApi
+
 
 import calendar 
 import datetime 
@@ -106,7 +106,7 @@ if col1.button('submit'):
 #------------------------------------------Connect to the MongoDB server--------------------------------------
     cl1, cl2, cl3= col2.columns(3,gap='small')
 
-    cl1.button('Upload MongoDB')
+    cl3.button('Upload MongoDB')
     #connecting database through atlas in MongoDB
     
     client =MongoClient("mongodb+srv://sridhar15:HeyramSridhar@cluster0.gkifau6.mongodb.net/?retryWrites=true&w=majority")
@@ -126,7 +126,7 @@ if col1.button('submit'):
     def convert_df(T_df ):
         return T_df.to_csv().encode('utf-8')
     csv = convert_df(T_df)
-    cl2.download_button(
+    cl1.download_button(
                             label="Download CSV file ",
                             data=csv,
                             file_name='user_data.csv',
@@ -137,7 +137,7 @@ if col1.button('submit'):
     def convert_df(T_df ):
         return T_df.to_json().encode('utf-8')
     json = convert_df(T_df)
-    cl3.download_button(
+    cl2.download_button(
                             label="Download JSON file",
                             data=json,
                             file_name='user_data.json',
