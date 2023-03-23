@@ -69,8 +69,7 @@ To raise query in TwitterSearchScraper() module for keyword and datetime and the
 Using pandas library to create columns and listed the user details 
 To display in streamlit we can add st.dataframe for display in streamlit app. 
 
-
-![Screenshot 2023-03-22 195821](https://user-images.githubusercontent.com/68391060/226937302-ca028167-1613-46e3-94f2-6e2d1e186695.png)
+![Screenshot 2023-03-23 111341](https://user-images.githubusercontent.com/68391060/227114595-3f8dda44-73d5-4999-b040-c3954b9a431a.png)
 
         
 # To create download button for JSON or CSV
@@ -86,7 +85,8 @@ Please note:Download button appear only after the getting data it will popped ou
                         file_name='user_data.csv',
                         
 
-![Screenshot 2023-03-22 195842](https://user-images.githubusercontent.com/68391060/226937418-e090e668-7d66-434b-9a27-a82366ae542f.png)
+![Screenshot 2023-03-23 111248](https://user-images.githubusercontent.com/68391060/227114523-33272c6a-7223-4ae2-9a86-9ce8aaec8d28.png)
+
 
     #this is sample locahost mongodb database
     client = MongoClient('mongodb://localhost:27017/')
