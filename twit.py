@@ -5,7 +5,6 @@ import numpy as np
 import snscrape.modules.twitter as sntwit
 from pymongo import MongoClient
 
-
 import calendar 
 import datetime 
 
